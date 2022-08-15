@@ -1,13 +1,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/beipack/cache-backpack/blob/master/LICENSE.md)
 ## Why
-```
+```typescript
 // Const assertion is useful, but lack type enforcement
 const prodConfig = {
   environment: 'typo', 
   language: 'en',
 } as const 
 
-// Trying to type it will lead to us losing the benefits of the const assertion. 
+// Trying to type it will lead to us losing the benefits of the const assertion
 interface Config {
   environment: 'dev' | 'staging' | 'prod'
   language: 'en' | 'zh'
@@ -26,7 +26,7 @@ const prodConfig: Config = {
 npm install const-with-typing
 ```
 
-```
+```typescript
 import { makeAConstCreator } from 'const-with-typing'
 
 // Define the shape of your constant
@@ -37,7 +37,6 @@ interface Config {
 
 // Pass in as a type parameter
 const createConfig = makeAConstCreator<Config>()
-
 
 // Now we can create constants that has the type enforcement of Configuration
 const qaConfig = createConfig({
